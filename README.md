@@ -15,3 +15,5 @@ This sketch probably does not work yet. Is was written on a train. Consider it p
 * 1 x Power Jack
 * 1 x 220 ohm Resistor
 * 1 x Toggle Switch
+* 1 X LED
+* 1 x ? ohm resistor

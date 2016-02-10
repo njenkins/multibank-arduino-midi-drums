@@ -7,6 +7,7 @@ const int TOTAL_BANKS = 5; //Total number of banks on rotary switch
 const int TOTAL_PADS = 4; //Total number of drum pads
 const int MIDI_CHANNEL = 1; //MIDI Channel to send notes on
 const int VELOCITY = 127; //Velocity to use for each MIDI note
+const int POWER_LED = 10;
 const int SENSITIVITY_CONTROL = A4;
 int bankSwitch[TOTAL_BANKS] = {5, 6, 7, 8, 9}; //These are the Digital pins rotary switch attaches to
 int knockSensors[TOTAL_PADS] = {A0, A1, A2, A3}; //These are the Analog pins drum pads attach to.
@@ -17,6 +18,8 @@ void setup() {
   for(int i = 0; i < TOTAL_BANKS; i++){
     pinMode(bankSwitch[i], INPUT);
   }
+
+  pinMode(POWER_LED, OUTPUT);
 }
 
 
