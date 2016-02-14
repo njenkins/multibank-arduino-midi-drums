@@ -26,10 +26,8 @@ void setup() {
 
 //Do this forever
 void loop() {
-
   int bank = getChosenBank();
   int threshold = getThreshold();
-
   for(int i = 0; i < TOTAL_PADS; i++){
     checkAndTrigger(knockSensors[i], bank, threshold);
   }
