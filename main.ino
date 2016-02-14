@@ -9,6 +9,7 @@ const int MIDI_CHANNEL = 1; //MIDI Channel to send notes on
 const int VELOCITY = 127; //Velocity to use for each MIDI note
 const int POWER_LED = 10;
 const int SENSITIVITY_CONTROL = A4;
+const int BASE_NOTE = 60;
 int bankSwitch[TOTAL_BANKS] = {5, 6, 7, 8, 9}; //These are the Digital pins rotary switch attaches to
 int knockSensors[TOTAL_PADS] = {A0, A1, A2, A3}; //These are the Analog pins drum pads attach to.
 
@@ -65,7 +66,7 @@ Checks a pads state and if required fires related MIDI Note On
 @param {int} threshold Sensitivity threshold value
 */
 void checkAndTrigger(int targetPad, int bank, int threshold){
-  int note = 0;
+  int note;
   int sensorReading = analogRead(targetPad);
   if (sensorReading >= threshold) {
     //Serial.println(sensorReading);
@@ -73,13 +74,13 @@ void checkAndTrigger(int targetPad, int bank, int threshold){
     MIDI.sendNoteOn(note, VELOCITY, MIDI_CHANNEL);
   }
 }
+
 /**
 Convert a pad and bank combination to MIDI Note
 @params {int} Triggered pad
 @params {int} Currently selected bank
 */
 int padToNote(int pad, int bank){
-  int baseNote = 60;
-  int note = pad + baseNote + (TOTAL_PADS * bank);
+  int note = pad + BASE_NOTE + (TOTAL_PADS * bank);
   return note;
 }
