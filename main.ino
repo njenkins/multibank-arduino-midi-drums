@@ -41,7 +41,7 @@ int getChosenBank(){
 
   //Loops through all bankSwitch pins
   for(int i = 0; i < TOTAL_BANKS; i++){
-    //If is in HIGH state, return value
+    //If is in LOW state, return value
     if(digitalRead(bankSwitch[i]) == LOW){
       return i;
     };
@@ -80,6 +80,6 @@ Convert a pad and bank combination to MIDI Note
 */
 int padToNote(int pad, int bank){
   int baseNote = 60;
-  int note = (pad * (bank + 1)) + baseNote;
+  int note = pad + baseNote + (TOTAL_PADS * bank);
   return note;
 }
