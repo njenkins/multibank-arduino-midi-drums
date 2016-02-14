@@ -16,7 +16,7 @@ int knockSensors[TOTAL_PADS] = {A0, A1, A2, A3}; //These are the Analog pins dru
 void setup() {
   //Setup all bank options as input pins
   for(int i = 0; i < TOTAL_BANKS; i++){
-    pinMode(bankSwitch[i], INPUT);
+    pinMode(bankSwitch[i], INPUT_PULLUP);
   }
 
   pinMode(POWER_LED, OUTPUT);
@@ -42,7 +42,7 @@ int getChosenBank(){
   //Loops through all bankSwitch pins
   for(int i = 0; i < TOTAL_BANKS; i++){
     //If is in HIGH state, return value
-    if(digitalRead(bankSwitch[i]) == HIGH){
+    if(digitalRead(bankSwitch[i]) == LOW){
       return i;
     };
   }
