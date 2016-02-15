@@ -7,7 +7,7 @@ const int TOTAL_BANKS = 5; //Total number of banks on rotary switch
 const int TOTAL_PADS = 4; //Total number of drum pads
 const int MIDI_CHANNEL = 1; //MIDI Channel to send notes on
 const int VELOCITY = 127; //Velocity to use for each MIDI note
-const int POWER_LED = 10;
+const int FEEDBACK_LED = 10;
 const int SENSITIVITY_CONTROL = A4;
 const int BASE_NOTE = 60;
 int bankSwitch[TOTAL_BANKS] = {5, 6, 7, 8, 9}; //These are the Digital pins rotary switch attaches to
@@ -20,7 +20,7 @@ void setup() {
     pinMode(bankSwitch[i], INPUT_PULLUP);
   }
 
-  pinMode(POWER_LED, OUTPUT);
+  pinMode(FEEDBACK_LED, OUTPUT);
 }
 
 
@@ -70,6 +70,10 @@ void checkAndTrigger(int targetPad, int bank, int threshold){
     //Serial.println(sensorReading);
     note = padToNote(targetPad, bank);
     MIDI.sendNoteOn(note, VELOCITY, MIDI_CHANNEL);
+    digitalWrite(FEEDBACK_LED, HIGH);
+  }
+  else {
+    digitalWrite(FEEDBACK_LED, LOW);
   }
 }
 

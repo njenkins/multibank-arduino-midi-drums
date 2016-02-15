@@ -3,7 +3,6 @@ This repo holds code and schematics for 4 pad, multi bank Arduino MIDI drumkit.
 
 This sketch probably does not work yet. Is was written on a train. Consider it pseudocode.
 
-
 ## What you'll need
 * 1 x Arduino Nano (Brain)
 * 4 x Piezo Discs (Drum Pads)
@@ -15,6 +14,6 @@ This sketch probably does not work yet. Is was written on a train. Consider it p
 * 1 x Power Jack (For power connection)
 * 1 x 220 ohm Resistor (For MIDI port)
 * 1 x Toggle Switch (Power switch)
-* 1 X LED (Power indicator)
+* 1 X LED (Hit indicator)
 * 1 x ? ohm resistor (LED resistor)
 * 1 X ? Diode (Reverse polarity protection)
